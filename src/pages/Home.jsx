@@ -1,7 +1,9 @@
 import { features } from "../data/features";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="container">
@@ -12,7 +14,7 @@ export default function Home() {
               className="feature-button"
               onClick={(e) => {
                 e.preventDefault();
-                window.open(feature.url, "_blank");
+                navigate(feature.url);
               }}
             >
               {feature.name}

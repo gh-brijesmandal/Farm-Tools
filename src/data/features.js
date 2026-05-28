@@ -4,7 +4,7 @@ export const features = [
     url: "/harvest-loss-calculator",
   },
   {
-    name: "Random, Shit",
-    url: "google.com",
+    name: "Random, Links. Should load to this page",
+    url: "/",
   },
 ];
