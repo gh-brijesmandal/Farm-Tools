@@ -258,7 +258,87 @@ export default function HarvestLossCalculator() {
             </div>
           )}
 
-          {spacing == "38" && <> Hi</>}
+          {spacing == "38" && (
+            <div
+              className="sub-container"
+              style={{ border: "2px solid white", padding: "12px" }}
+            >
+              <div className="container-one">
+                <h3>1 Row Width (38x38"")</h3>
+                <input
+                  type="text"
+                  style={inputStyle}
+                  id="weight"
+                  placeholder="Enter weight"
+                  onFocus={(e) => {
+                    Object.assign(e.target.style, inputFocusStyle);
+                  }}
+                  onBlur={(e) => {
+                    Object.assign(e.target.style, inputStyle);
+                  }}
+                />
+                <select name="" id="weight-unit" style={selectStyle}>
+                  <option value="">Choose Unit For Weight</option>
+                  <option value="grams">grams</option>
+                  <option value="ounces">ounces</option>
+                </select>
+                <p>BU: {value1.bu}</p>
+                <p>BU/A: {value1.bua}</p>
+                <button
+                  className="feature-button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    let weight = document.getElementById("weight").value;
+                    let unit = document.getElementById("weight-unit").value;
+                    if (Number.isNaN(Number(weight))) {
+                      renderResults("", unit, 4343.933518, 56, "value1");
+                    } else {
+                      renderResults(weight, unit, 4343.933518, 56, "value1");
+                    }
+                  }}
+                >
+                  Calculate
+                </button>
+              </div>
+              <div className="container-two">
+                <h3>2 Row Width (76"x38")</h3>
+                <input
+                  type="text"
+                  style={inputStyle}
+                  id="weight-2"
+                  placeholder="Enter weight"
+                  onFocus={(e) => {
+                    Object.assign(e.target.style, inputFocusStyle);
+                  }}
+                  onBlur={(e) => {
+                    Object.assign(e.target.style, inputStyle);
+                  }}
+                />
+                <select name="" id="weight-unit-2" style={selectStyle}>
+                  <option value="">Choose Unit For Weight</option>
+                  <option value="grams">grams</option>
+                  <option value="ounces">ounces</option>
+                </select>
+                <p>BU: {value2.bu}</p>
+                <p>BU/A: {value2.bua}</p>
+                <button
+                  className="feature-button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    let weight = document.getElementById("weight-2").value;
+                    let unit = document.getElementById("weight-unit-2").value;
+                    if (Number.isNaN(Number(weight))) {
+                      renderResults("", unit, 2171.966759, 56, "value2");
+                    } else {
+                      renderResults(weight, unit, 2171.966759, 56, "value2");
+                    }
+                  }}
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
