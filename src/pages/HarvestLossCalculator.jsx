@@ -4,7 +4,11 @@ import "./style.css";
 export default function HarvestLossCalculator() {
   const [selectedCrop, setSelectedCrop] = useState("");
   const [spacing, setSpacing] = useState("");
-  const [value, setValue] = useState({
+  const [value1, setValue1] = useState({
+    bu: "0",
+    bua: "0",
+  });
+  const [value2, setValue2] = useState({
     bu: "0",
     bua: "0",
   });
@@ -61,36 +65,74 @@ export default function HarvestLossCalculator() {
     setSelectedCrop(e.target.value);
   };
 
-  function renderResults(weight, unit, multiplicationFactor, divisionFactor) {
-    if (!weight || !unit) {
-      setValue({
-        bu: "Enter both weight and unit",
-        bua: "Enter valid values",
-      });
-      return;
-    } else {
-      let bu;
-      let bua;
-      weight = Number(weight);
-      if (unit === "grams") {
-        bu = (weight * 0.00220462) / divisionFactor;
-        bua = (bu * multiplicationFactor).toString();
-        console.log(bua);
-        setValue({
-          bu: bu.toString(),
-          bua: bua,
+  function renderResults(
+    weight,
+    unit,
+    multiplicationFactor,
+    divisionFactor,
+    type,
+  ) {
+    if (type === "value1") {
+      if (!weight || !unit) {
+        setValue1({
+          bu: "Enter both weight and unit",
+          bua: "Enter valid values",
         });
         return;
-      } else if (unit === "ounces") {
-        bu = (weight * 0.0625) / divisionFactor;
-        bua = (bu * multiplicationFactor).toString();
-        console.log(bua);
+      } else {
+        let bu;
+        let bua;
+        weight = Number(weight);
+        if (unit === "grams") {
+          bu = (weight * 0.00220462) / divisionFactor;
+          bua = (bu * multiplicationFactor).toString();
 
-        setValue({
-          bu: bu.toString(),
-          bua,
+          setValue1({
+            bu: bu.toString(),
+            bua: bua,
+          });
+          return;
+        } else if (unit === "ounces") {
+          bu = (weight * 0.0625) / divisionFactor;
+          bua = (bu * multiplicationFactor).toString();
+
+          setValue1({
+            bu: bu.toString(),
+            bua,
+          });
+          return;
+        }
+      }
+    } else {
+      if (!weight || !unit) {
+        setValue2({
+          bu: "Enter both weight and unit",
+          bua: "Enter valid values",
         });
         return;
+      } else {
+        let bu;
+        let bua;
+        weight = Number(weight);
+        if (unit === "grams") {
+          bu = (weight * 0.00220462) / divisionFactor;
+          bua = (bu * multiplicationFactor).toString();
+          console.log(bua);
+          setValue2({
+            bu: bu.toString(),
+            bua: bua,
+          });
+          return;
+        } else if (unit === "ounces") {
+          bu = (weight * 0.0625) / divisionFactor;
+          bua = (bu * multiplicationFactor).toString();
+
+          setValue2({
+            bu: bu.toString(),
+            bua,
+          });
+          return;
+        }
       }
     }
   }
@@ -135,7 +177,10 @@ export default function HarvestLossCalculator() {
             <option value="38">38</option>
           </select>
           {spacing == "30" && (
-            <div className="sub-container">
+            <div
+              className="sub-container"
+              style={{ border: "2px solid white", padding: "12px" }}
+            >
               <div className="container-one">
                 <h3>1 Row Width (30"x48")</h3>
                 <input
@@ -155,8 +200,8 @@ export default function HarvestLossCalculator() {
                   <option value="grams">grams</option>
                   <option value="ounces">ounces</option>
                 </select>
-                <p>BU: {value.bu}</p>
-                <p>BU/A: {value.bua}</p>
+                <p>BU: {value1.bu}</p>
+                <p>BU/A: {value1.bua}</p>
                 <button
                   className="feature-button"
                   onClick={(e) => {
@@ -164,9 +209,9 @@ export default function HarvestLossCalculator() {
                     let weight = document.getElementById("weight").value;
                     let unit = document.getElementById("weight-unit").value;
                     if (Number.isNaN(Number(weight))) {
-                      renderResults("", unit, 4356, 56);
+                      renderResults("", unit, 4356, 56, "value1");
                     } else {
-                      renderResults(weight, unit, 4356, 56);
+                      renderResults(weight, unit, 4356, 56, "value1");
                     }
                   }}
                 >
@@ -175,11 +220,45 @@ export default function HarvestLossCalculator() {
               </div>
               <div className="container-two">
                 <h3>2 Row Width (60x48"")</h3>
+                <input
+                  type="text"
+                  style={inputStyle}
+                  id="weight-2"
+                  placeholder="Enter weight"
+                  onFocus={(e) => {
+                    Object.assign(e.target.style, inputFocusStyle);
+                  }}
+                  onBlur={(e) => {
+                    Object.assign(e.target.style, inputStyle);
+                  }}
+                />
+                <select name="" id="weight-unit-2" style={selectStyle}>
+                  <option value="">Choose Unit For Weight</option>
+                  <option value="grams">grams</option>
+                  <option value="ounces">ounces</option>
+                </select>
+                <p>BU: {value2.bu}</p>
+                <p>BU/A: {value2.bua}</p>
+                <button
+                  className="feature-button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    let weight = document.getElementById("weight-2").value;
+                    let unit = document.getElementById("weight-unit-2").value;
+                    if (Number.isNaN(Number(weight))) {
+                      renderResults("", unit, 2178, 56, "value2");
+                    } else {
+                      renderResults(weight, unit, 2178, 56, "value2");
+                    }
+                  }}
+                >
+                  Calculate
+                </button>
               </div>
             </div>
           )}
 
-          {spacing == "38" && <div>38 he bhai </div>}
+          {spacing == "38" && <> Hi</>}
         </div>
       )}
 
