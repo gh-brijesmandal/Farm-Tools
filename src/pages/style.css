@@ -3,38 +3,38 @@
     font-weight: 500;
     padding: 14px 28px;
     margin: 10px;
-    border: 2px solid #2d5a3d;
+    border: 2px solid #5D1725;
     border-radius: 12px;
-    background: #f0f8f4;
-    color: #2d5a3d;
+    background: #FFF8F9;
+    color: #5D1725;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(45, 90, 61, 0.1);
+    box-shadow: 0 2px 8px rgba(93, 23, 37, 0.1);
     font-family: var(--sans);
     letter-spacing: 0.5px;
 }
 
 .feature-button:hover {
-    background: #2d5a3d;
-    color: #f0f8f4;
-    box-shadow: 0 6px 16px rgba(45, 90, 61, 0.2);
+    background: #5D1725;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(93, 23, 37, 0.25);
     transform: translateY(-3px);
 }
 
 .feature-button:active {
     transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(45, 90, 61, 0.15);
+    box-shadow: 0 3px 8px rgba(93, 23, 37, 0.15);
 }
 
 .feature-button:focus-visible {
-    outline: 2px solid #2d5a3d;
+    outline: 2px solid #5D1725;
     outline-offset: 2px;
 }
 
 .title {
     font-size: 2.8em;
     font-weight: 700;
-    color: #2d5a3d;
+    color: #5D1725;
     margin: 50px 0 40px 0;
     text-align: center;
     letter-spacing: -0.8px;

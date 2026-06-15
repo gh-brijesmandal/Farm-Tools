@@ -19,14 +19,14 @@ function makeSelect(mobile) {
     marginBottom: mobile ? "16px" : "24px",
     fontSize: mobile ? "15px" : "16px",
     fontFamily: "system-ui, 'Segoe UI', Roboto, sans-serif",
-    border: "2px solid #2d5a3d",
+    border: "2px solid #5D1725",
     borderRadius: "8px",
-    backgroundColor: "#1a2620",
-    color: "#6dd5a8",
+    backgroundColor: "#2A0A10",
+    color: "#F0E4E7",
     cursor: "pointer",
     boxSizing: "border-box",
     transition: "all 0.3s ease",
-    boxShadow: "0 2px 8px rgba(45,90,61,0.2)",
+    boxShadow: "0 2px 8px rgba(93,23,37,0.2)",
   };
 }
 
@@ -36,13 +36,13 @@ function makeInput(mobile) {
     padding: mobile ? "14px 12px" : "12px 16px",
     fontSize: mobile ? "15px" : "16px",
     fontFamily: "system-ui, 'Segoe UI', Roboto, sans-serif",
-    border: "2px solid #2d5a3d",
+    border: "2px solid #5D1725",
     borderRadius: "8px",
-    backgroundColor: "#1a2620",
-    color: "#6dd5a8",
+    backgroundColor: "#2A0A10",
+    color: "#F0E4E7",
     boxSizing: "border-box",
     transition: "all 0.3s ease",
-    boxShadow: "0 2px 8px rgba(45,90,61,0.2)",
+    boxShadow: "0 2px 8px rgba(93,23,37,0.2)",
   };
 }
 
@@ -50,9 +50,9 @@ function makeButton(mobile, fullWidth = false) {
   return {
     width: fullWidth ? "100%" : "auto",
     padding: mobile ? "14px 16px" : "12px 20px",
-    background: "linear-gradient(135deg, #2d5a3d, #3d7a52)",
-    color: "#6dd5a8",
-    border: "1px solid #6dd5a8",
+    background: "linear-gradient(135deg, #5D1725, #7A1F30)",
+    color: "#F0E4E7",
+    border: "1px solid #F0E4E7",
     borderRadius: "8px",
     cursor: "pointer",
     fontSize: mobile ? "15px" : "14px",
@@ -97,8 +97,8 @@ function GridRow({ gridKey, divisionFactor }) {
   return (
     <div
       style={{
-        background: "#1a2620",
-        border: "1px solid #2d5a3d",
+        background: "#2A0A10",
+        border: "1px solid #5D1725",
         borderRadius: "10px",
         padding: mobile ? "14px" : "18px 20px",
         marginBottom: "14px",
@@ -106,7 +106,7 @@ function GridRow({ gridKey, divisionFactor }) {
     >
       <h3
         style={{
-          color: "#6dd5a8",
+          color: "#F0E4E7",
           margin: "0 0 12px",
           fontSize: mobile ? "15px" : "16px",
           fontWeight: "600",
@@ -115,7 +115,6 @@ function GridRow({ gridKey, divisionFactor }) {
         {label}
       </h3>
 
-      {/* on mobile: stacked; on desktop: single row */}
       <div
         style={{
           display: "flex",
@@ -154,16 +153,16 @@ function GridRow({ gridKey, divisionFactor }) {
             style={{
               display: "flex",
               gap: "20px",
-              color: "#c1d4c8",
+              color: "#D4B8BC",
               fontSize: mobile ? "15px" : "14px",
               padding: mobile ? "10px 0 0" : "0",
             }}
           >
             <span>
-              <strong style={{ color: "#6dd5a8" }}>BU:</strong> {result.bu}
+              <strong style={{ color: "#F0E4E7" }}>BU:</strong> {result.bu}
             </span>
             <span>
-              <strong style={{ color: "#6dd5a8" }}>BU/A:</strong> {result.bua}
+              <strong style={{ color: "#F0E4E7" }}>BU/A:</strong> {result.bua}
             </span>
           </div>
         )}
@@ -204,8 +203,8 @@ function InlineCalc({ label, mult, divisionFactor }) {
       style={{
         flex: "1 1 240px",
         minWidth: mobile ? "100%" : "240px",
-        background: "#1a2620",
-        border: "1px solid #2d5a3d",
+        background: "#2A0A10",
+        border: "1px solid #5D1725",
         borderRadius: "10px",
         padding: mobile ? "14px" : "16px",
         boxSizing: "border-box",
@@ -213,7 +212,7 @@ function InlineCalc({ label, mult, divisionFactor }) {
     >
       <h3
         style={{
-          color: "#6dd5a8",
+          color: "#F0E4E7",
           margin: "0 0 12px",
           fontSize: mobile ? "15px" : "15px",
         }}
@@ -238,13 +237,13 @@ function InlineCalc({ label, mult, divisionFactor }) {
       </select>
       {result && (
         <div
-          style={{ color: "#c1d4c8", fontSize: "14px", marginBottom: "10px" }}
+          style={{ color: "#D4B8BC", fontSize: "14px", marginBottom: "10px" }}
         >
           <p style={{ margin: "4px 0" }}>
-            <strong style={{ color: "#6dd5a8" }}>BU:</strong> {result.bu}
+            <strong style={{ color: "#F0E4E7" }}>BU:</strong> {result.bu}
           </p>
           <p style={{ margin: "4px 0" }}>
-            <strong style={{ color: "#6dd5a8" }}>BU/A:</strong> {result.bua}
+            <strong style={{ color: "#F0E4E7" }}>BU/A:</strong> {result.bua}
           </p>
         </div>
       )}
@@ -290,7 +289,7 @@ function CornSoySection({ crop }) {
           marginBottom: "8px",
           fontSize: "16px",
           fontWeight: "500",
-          color: "#c1d4c8",
+          color: "#D4B8BC",
         }}
       >
         Select Row Spacing
@@ -315,7 +314,7 @@ function CornSoySection({ crop }) {
             flexDirection: mobile ? "column" : "row",
             gap: "16px",
             width: "100%",
-            border: "2px solid #2d5a3d",
+            border: "2px solid #5D1725",
             borderRadius: "12px",
             padding: mobile ? "14px" : "20px",
             boxSizing: "border-box",
@@ -338,9 +337,9 @@ function CornSoySection({ crop }) {
         <div
           style={{
             padding: "20px",
-            border: "1px solid #2d5a3d",
+            border: "1px solid #5D1725",
             borderRadius: "10px",
-            color: "#c1d4c8",
+            color: "#D4B8BC",
             textAlign: "center",
             fontSize: "15px",
           }}
@@ -362,7 +361,7 @@ export default function HarvestLossCalculator() {
       style={{
         minHeight: "100vh",
         background:
-          "linear-gradient(160deg, #0d1a12 0%, #111f17 50%, #0a1510 100%)",
+          "linear-gradient(160deg, #1A0508 0%, #220A0F 50%, #150306 100%)",
         padding: mobile ? "16px 12px" : "40px 20px",
         fontFamily: "system-ui, 'Segoe UI', Roboto, sans-serif",
         boxSizing: "border-box",
@@ -372,9 +371,9 @@ export default function HarvestLossCalculator() {
         style={{
           maxWidth: "800px",
           margin: "0 auto",
-          background: "rgba(20, 35, 25, 0.8)",
+          background: "rgba(42, 10, 16, 0.85)",
           borderRadius: mobile ? "12px" : "16px",
-          border: "1px solid #2d5a3d",
+          border: "1px solid #5D1725",
           padding: mobile ? "20px 16px" : "40px",
           boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
           boxSizing: "border-box",
@@ -383,7 +382,7 @@ export default function HarvestLossCalculator() {
         <h1
           style={{
             textAlign: "center",
-            color: "#6dd5a8",
+            color: "#F0E4E7",
             fontSize: mobile ? "22px" : "28px",
             fontWeight: "700",
             marginBottom: mobile ? "24px" : "32px",
@@ -400,7 +399,7 @@ export default function HarvestLossCalculator() {
             marginBottom: "8px",
             fontSize: mobile ? "16px" : "20px",
             fontWeight: "500",
-            color: "#c1d4c8",
+            color: "#D4B8BC",
           }}
         >
           Choose your crop
@@ -426,7 +425,7 @@ export default function HarvestLossCalculator() {
           <div>
             <p
               style={{
-                color: "#c1d4c8",
+                color: "#D4B8BC",
                 marginBottom: "16px",
                 fontSize: "14px",
               }}
@@ -441,7 +440,7 @@ export default function HarvestLossCalculator() {
           <div>
             <p
               style={{
-                color: "#c1d4c8",
+                color: "#D4B8BC",
                 marginBottom: "16px",
                 fontSize: "14px",
               }}
