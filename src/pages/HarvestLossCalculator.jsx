@@ -87,11 +87,24 @@ function GridRow({ gridKey, divisionFactor }) {
 
   const handleCalc = () => {
     const bu = calcBU(weight, unit, divisionFactor);
-    setResult(
-      bu === null
-        ? { bu: "Enter valid values", bua: "—" }
-        : { bu: bu.toFixed(4), bua: (bu * multFactor).toFixed(2) },
-    );
+    if (bu === null) {
+      setResult({
+        bu: "Enter valid values",
+        bua: "Invalid. Check your values.",
+      });
+      return;
+    }
+
+    const bua = bu * multFactor;
+    if (bua > 10 || bua < 0) {
+      setResult({
+        bu: 0,
+        bua: bua.toFixed(2) + "\nCheck your values for weight or unit.",
+      });
+      return;
+    }
+
+    setResult({ bu: bu.toFixed(4), bua: bua.toFixed(2) });
   };
 
   return (
@@ -158,9 +171,9 @@ function GridRow({ gridKey, divisionFactor }) {
               padding: mobile ? "10px 0 0" : "0",
             }}
           >
-            <span>
+            {/* <span>
               <strong style={{ color: "#F0E4E7" }}>BU:</strong> {result.bu}
-            </span>
+            </span> */}
             <span>
               <strong style={{ color: "#F0E4E7" }}>BU/A:</strong> {result.bua}
             </span>
@@ -191,11 +204,21 @@ function InlineCalc({ label, mult, divisionFactor }) {
 
   const handleCalc = () => {
     const bu = calcBU(weight, unit, divisionFactor);
-    setResult(
-      bu === null
-        ? { bu: "Invalid", bua: "—" }
-        : { bu: bu.toFixed(4), bua: (bu * mult).toFixed(2) },
-    );
+    if (bu === null) {
+      setResult({ bu: "Invalid", bua: "Invalid. Check your values." });
+      return;
+    }
+
+    const bua = bu * mult;
+    if (bua > 10 || bua < 0) {
+      setResult({
+        bu: 0,
+        bua: bua.toFixed(2) + "\nCheck your values for weight or unit.",
+      });
+      return;
+    }
+
+    setResult({ bu: bu.toFixed(4), bua: bua.toFixed(2) });
   };
 
   return (
@@ -239,9 +262,9 @@ function InlineCalc({ label, mult, divisionFactor }) {
         <div
           style={{ color: "#D4B8BC", fontSize: "14px", marginBottom: "10px" }}
         >
-          <p style={{ margin: "4px 0" }}>
+          {/* <p style={{ margin: "4px 0" }}>
             <strong style={{ color: "#F0E4E7" }}>BU:</strong> {result.bu}
-          </p>
+          </p> */}
           <p style={{ margin: "4px 0" }}>
             <strong style={{ color: "#F0E4E7" }}>BU/A:</strong> {result.bua}
           </p>
@@ -430,7 +453,7 @@ export default function HarvestLossCalculator() {
                 fontSize: "14px",
               }}
             >
-              Wheat — bushel weight: 60 lbs. Select a grid size below.
+              Wheat - bushel weight: 60 lbs. Select a grid size below.
             </p>
             <WheatRiceSection divisionFactor={60} />
           </div>
@@ -445,7 +468,7 @@ export default function HarvestLossCalculator() {
                 fontSize: "14px",
               }}
             >
-              Rice — bushel weight: 45 lbs. Select a grid size below.
+              Rice - bushel weight: 45 lbs. Select a grid size below.
             </p>
             <WheatRiceSection divisionFactor={45} />
           </div>
