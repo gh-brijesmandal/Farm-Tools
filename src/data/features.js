@@ -4,7 +4,11 @@ export const features = [
     url: "/harvest-loss-calculator",
   },
   {
-    name: "Random, Links. Should load to this page",
-    url: "/",
+    name: "Plant Calibration Tool",
+    url: "/plant-calibration-tool",
+  },
+  {
+    name: "About Page",
+    url: "/about",
   },
 ];
